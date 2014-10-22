@@ -64,14 +64,10 @@ $waitfortext = 'We will automatically test this page with Watir.'
 
 describe "jenkins-testlink-rspec-watir-example-web-page" do
 	it "should not show 404 text (TC0001)" do
-		#@browser.goto($baseurl)  
-		#Watir::Wait.until { @browser.text.include? 'We will automatically test this page with Watir.' }
 		expect(@browser.text).not_to include('404')
 	end
 
 	it "should show a text (TC0002)" do
-		#@browser.goto($baseurl)  
-		#Watir::Wait.until { @browser.text.include? 'We will automatically test this page with Watir.' }
 		expect(@browser.text).to include('Jenkins-testlink-rspec-watir-example')
 	end
 end
