@@ -78,21 +78,31 @@ Use the Api Key form Testlink. Make sure the URL is correct. You can just open i
 
 	![image](http://picdrop.t3lab.com/5kX5SGZVLB.png)
 
-1. 	Add build step ```execute shell``` and enter ```bundle install```
+1. 	Add build step ```execute shell``` and enter 
+	
+	```
+	bundle install
+	rm -f final_reports/*.xml
+	```
 
-![image](http://picdrop.t3lab.com/4uXMVWnSzP.png)
+	![image](http://picdrop.t3lab.com/S7M9NsXys3.png)
 
 1. 	Add build step ```Invoke TestLink``` and fill in the TestLink Configuration. You should choose your existing TestLink Version which you configured in System Configuration. Enter ```jenkins-testlink-rspec-watir-example``` in Test Project Name, ```jenkins-test-plan``` in Test Plan Name, ```jenkins-examples-$BUILD_NUMBER``` and ```RSPEC CASE ID``` in Custom Fields.
 
 	![image](http://picdrop.t3lab.com/8qjpZVV4JV.png)
 
-1.	In the Iterative Test Build Steps section add action ```Execute Shell`` and enter the command ```rake spec SPEC_OPTS="-e $TESTLINK_TESTCASE_NAME"```
+1.	In the Iterative Test Build Steps section add action ```Execute Shell`` and enter the commands 
 
-	![image](http://picdrop.t3lab.com/WGu35Z5fWn.png)
+	```
+	rake spec SPEC_OPTS="-e $TESTLINK_TESTCASE_NAME"
+	rake move_report
+	```
+
+	![image](http://picdrop.t3lab.com/iPd6O3cKvq.png)
 
 1.	In the Result Seeking Strategy section add ```JUnit Case Name``` with ```final_reports/*.xml``` as include pattern and ```RSPEC CASE ID``` as Custom Key Field.
 
-	![image](http://picdrop.t3lab.com/bk2cR9kUMQ.png)
+	![image](http://picdrop.t3lab.com/a2nlTXyxU0.png)
 
 1.	Finally save this job
 
@@ -104,85 +114,104 @@ The last step in this tutorial is to see if the everything is glewed correctly.
 
 	```
 	Started by user Pim Snel
-Building on master in workspace /var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example
- > git rev-parse --is-inside-work-tree # timeout=10
-Fetching changes from the remote Git repository
- > git config remote.origin.url https://github.com/mipmip/jenkins-testlink-rspec-watir-example.git # timeout=10
-Fetching upstream changes from https://github.com/mipmip/jenkins-testlink-rspec-watir-example.git
- > git --version # timeout=10
- > git fetch --tags --progress https://github.com/mipmip/jenkins-testlink-rspec-watir-example.git +refs/heads/*:refs/remotes/origin/*
- > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
- > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
-Checking out Revision 800a3164549ef728bcc452f774e81d1cb8c55b73 (refs/remotes/origin/master)
- > git config core.sparsecheckout # timeout=10
- > git checkout -f 800a3164549ef728bcc452f774e81d1cb8c55b73
- > git rev-list 800a3164549ef728bcc452f774e81d1cb8c55b73 # timeout=10
-[jenkins-testlink-rspec-watir-example] $ /bin/sh -xe /tmp/hudson2594345640842243070.sh
-+ bundle install
-Using builder (3.2.2) 
-Using ffi (1.9.6) 
-Using childprocess (0.5.5) 
-Using ci_reporter (2.0.0) 
-Using rspec-support (3.1.2) 
-Using rspec-core (3.1.7) 
-Using diff-lcs (1.2.5) 
-Using rspec-expectations (3.1.2) 
-Using rspec-mocks (3.1.3) 
-Using rspec (3.1.0) 
-Using ci_reporter_rspec (1.0.0) 
-Using commonwatir (4.0.0) 
-Using headless (1.0.2) 
-Using multi_json (1.10.1) 
-Using rubyzip (1.1.6) 
-Using websocket (1.2.1) 
-Using selenium-webdriver (2.43.0) 
-Using watir-webdriver (0.6.11) 
-Using watir (5.0.0) 
-Using bundler (1.1.4) 
-[32mYour bundle is complete! It was installed into ./vendor/bundle[0m
-Preparing TestLink client API.
-Using TestLink URL: http://linge-1090-testlink.dev.lingewoud.net/lib/api/xmlrpc/v1/xmlrpc.php
+	Building on master in workspace /var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example
+	 > git rev-parse --is-inside-work-tree # timeout=10
+	Fetching changes from the remote Git repository
+	 > git config remote.origin.url https://github.com/mipmip/jenkins-testlink-rspec-watir-example.git # timeout=10
+	Fetching upstream changes from https://github.com/mipmip/jenkins-testlink-rspec-watir-example.git
+	 > git --version # timeout=10
+	 > git fetch --tags --progress https://github.com/mipmip/jenkins-testlink-rspec-watir-example.git +refs/heads/*:refs/remotes/origin/*
+	 > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+	 > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+	Checking out Revision 8044945504cfd69bf1dffe6f6e6feaab1f5ca51a (refs/remotes/origin/master)
+	 > git config core.sparsecheckout # timeout=10
+	 > git checkout -f 8044945504cfd69bf1dffe6f6e6feaab1f5ca51a
+	 > git rev-list 7b6cf2c1b1a1372c8e9bcc031df21ef494fc4b56 # timeout=10
+	[jenkins-testlink-rspec-watir-example] $ /bin/sh -xe /tmp/hudson3779607214383988305.sh
+	+ bundle install
+	Using builder (3.2.2) 
+	Using ffi (1.9.6) 
+	Using childprocess (0.5.5) 
+	Using ci_reporter (2.0.0) 
+	Using rspec-support (3.1.2) 
+	Using rspec-core (3.1.7) 
+	Using diff-lcs (1.2.5) 
+	Using rspec-expectations (3.1.2) 
+	Using rspec-mocks (3.1.3) 
+	Using rspec (3.1.0) 
+	Using ci_reporter_rspec (1.0.0) 
+	Using commonwatir (4.0.0) 
+	Using headless (1.0.2) 
+	Using multi_json (1.10.1) 
+	Using rubyzip (1.1.6) 
+	Using websocket (1.2.1) 
+	Using selenium-webdriver (2.43.0) 
+	Using watir-webdriver (0.6.11) 
+	Using watir (5.0.0) 
+	Using bundler (1.1.4) 
+	[32mYour bundle is complete! It was installed into ./vendor/bundle[0m
+	+ rm -f final_reports/SPEC-jenkins-testlink-rspec-watir-example-web-page.xml
+	Preparing TestLink client API.
+	Using TestLink URL: http://linge-1090-testlink.dev.lingewoud.net/lib/api/xmlrpc/v1/xmlrpc.php
 
-Found 2 automated test cases in TestLink.
+	Found 2 automated test cases in TestLink.
 
-Sorting automated test cases by TestLink test plan execution order.
+	Sorting automated test cases by TestLink test plan execution order.
 
-Executing single Build Steps.
+	Executing single Build Steps.
 
-Executing iterative Build Steps.
+	Executing iterative Build Steps.
 
-Merging build environment variables with data retrieved from TestLink.
+	Merging build environment variables with data retrieved from TestLink.
 
-[jenkins-testlink-rspec-watir-example] $ /bin/sh -xe /tmp/hudson3513464671279143072.sh
-+ rake spec SPEC_OPTS=-e TC0001
-rm -rf spec/reports
-/usr/bin/ruby1.9.1 -I/var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example/vendor/bundle/ruby/1.9.1/gems/rspec-core-3.1.7/lib:/var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example/vendor/bundle/ruby/1.9.1/gems/rspec-support-3.1.2/lib /var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example/vendor/bundle/ruby/1.9.1/gems/rspec-core-3.1.7/exe/rspec --pattern \*\*/\*_spec.rb
-Run options: include {:full_description=>/TC0001/}
-.
+	[jenkins-testlink-rspec-watir-example] $ /bin/sh -xe /tmp/hudson2351968225233930577.sh
+	+ rake spec SPEC_OPTS=-e TC0001
+	rm -rf spec/reports
+	/usr/bin/ruby1.9.1 -I/var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example/vendor/bundle/ruby/1.9.1/gems/rspec-core-3.1.7/lib:/var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example/vendor/bundle/ruby/1.9.1/gems/rspec-support-3.1.2/lib /var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example/vendor/bundle/ruby/1.9.1/gems/rspec-core-3.1.7/exe/rspec --pattern \*\*/\*_spec.rb
+	Run options: include {:full_description=>/TC0001/}
+	.
 
-Finished in 1.73 seconds (files took 3.21 seconds to load)
-1 example, 0 failures
-Merging build environment variables with data retrieved from TestLink.
+	Finished in 1.44 seconds (files took 2.45 seconds to load)
+	1 example, 0 failures
+	+ rake move_report
+	Rename from SPEC-jenkins-testlink-rspec-watir-example-web-page.xml to SPEC-47120101T0000-jenkins-testlink-rspec-watir-example-web-page.xml
+	Merging build environment variables with data retrieved from TestLink.
 
-[jenkins-testlink-rspec-watir-example] $ /bin/sh -xe /tmp/hudson2634444654344107912.sh
-+ rake spec SPEC_OPTS=-e TC0002
-rm -rf spec/reports
-/usr/bin/ruby1.9.1 -I/var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example/vendor/bundle/ruby/1.9.1/gems/rspec-core-3.1.7/lib:/var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example/vendor/bundle/ruby/1.9.1/gems/rspec-support-3.1.2/lib /var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example/vendor/bundle/ruby/1.9.1/gems/rspec-core-3.1.7/exe/rspec --pattern \*\*/\*_spec.rb
-Run options: include {:full_description=>/TC0002/}
-.
+	[jenkins-testlink-rspec-watir-example] $ /bin/sh -xe /tmp/hudson7996856009173563281.sh
+	+ rake spec SPEC_OPTS=-e TC0002
+	rm -rf spec/reports
+	/usr/bin/ruby1.9.1 -I/var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example/vendor/bundle/ruby/1.9.1/gems/rspec-core-3.1.7/lib:/var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example/vendor/bundle/ruby/1.9.1/gems/rspec-support-3.1.2/lib /var/lib/jenkins/workspace/jenkins-testlink-rspec-watir-example/vendor/bundle/ruby/1.9.1/gems/rspec-core-3.1.7/exe/rspec --pattern \*\*/\*_spec.rb
+	Run options: include {:full_description=>/TC0002/}
+	.
 
-Finished in 1.45 seconds (files took 2.46 seconds to load)
-1 example, 0 failures
-Looking for the test results of TestLink test cases.
+	Finished in 1.64 seconds (files took 2.88 seconds to load)
+	1 example, 0 failures
+	+ rake move_report
+	Rename from SPEC-47120101T0000-jenkins-testlink-rspec-watir-example-web-page.xml to SPEC-47120101T0000-47120101T0000-jenkins-testlink-rspec-watir-example-web-page.xml
+	Rename from SPEC-jenkins-testlink-rspec-watir-example-web-page.xml to SPEC-47120101T0000-jenkins-testlink-rspec-watir-example-web-page.xml
+	Looking for the test results of TestLink test cases.
 
-Looking for test results in JUnit test cases by its name.
+	Looking for test results in JUnit test cases by its name.
 
-Updating TestLink test cases.
+	Updating TestLink test cases.
 
-Found 2 test result(s).
+	Updating TestLink test cases.
 
-Finished: SUCCESS
+	Found 2 test result(s).
+
+	Finished: SUCCESS
+
 	```
+
+1.  Your project Front Page should look like this:
+
+	![image](http://picdrop.t3lab.com/vqjIz1RFrC.png)
+
+1.	And your TestLink Metrics should look like this:
+
+	![image](http://picdrop.t3lab.com/ks68zwjMtP.png)
+
+Cheers!
 
 ## FAQ
 
