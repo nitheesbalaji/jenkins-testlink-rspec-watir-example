@@ -217,7 +217,7 @@ Cheers!
 
 ### which names should I use for the RSPEC CASE ID?
 
-After you have run the spec's with ```rake all``` you should have a JUnit report. Here inside are the exact names you should use for the ```RSPEC CASE ID```-field in TestLink
+After you have run the spec's with ```rake spec``` you should have a JUnit report. Here inside are the exact names you should use for the ```RSPEC CASE ID```-field in TestLink
 
 try to run ```grep "testcase name" -r spec | cut -d '"' -f 2``` from the root of the repository. It will list you the exact names. 
 	
