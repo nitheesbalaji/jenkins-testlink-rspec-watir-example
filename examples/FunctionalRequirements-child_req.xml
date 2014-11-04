@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requirements>
+	<requirement>
+		<docid><![CDATA[req-0001]]></docid>
+		<title><![CDATA[The website should load without problems]]></title>
+		<version>1</version>
+		<revision>3</revision>
+		<node_order>1</node_order>
+		<description><![CDATA[
+
+]]></description>
+		<status><![CDATA[D]]></status>
+		<type><![CDATA[3]]></type>
+		<expected_coverage><![CDATA[3]]></expected_coverage>
+		
+	</requirement>
+	<requirement>
+		<docid><![CDATA[req-0002]]></docid>
+		<title><![CDATA[The title should be displayed somewhere in the text]]></title>
+		<version>1</version>
+		<revision>2</revision>
+		<node_order>2</node_order>
+		<description><![CDATA[
+
+]]></description>
+		<status><![CDATA[D]]></status>
+		<type><![CDATA[3]]></type>
+		<expected_coverage><![CDATA[1]]></expected_coverage>
+		
+	</requirement>
+</requirements>

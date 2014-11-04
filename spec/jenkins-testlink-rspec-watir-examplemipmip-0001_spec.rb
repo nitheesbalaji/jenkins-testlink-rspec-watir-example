@@ -44,6 +44,7 @@ else
 	$browser = Watir::Browser.new
 end
 
+
 RSpec.configure do |config|
 
 	config.after(:suite) { 
@@ -56,18 +57,33 @@ RSpec.configure do |config|
 		@browser = $browser
 		@browser.goto($baseurl)  
 	}
-	config.fail_fast = true
 end
 
 $baseurl = 'http://mipmip.github.io/jenkins-testlink-rspec-watir-example'
 $waitfortext = 'We will automatically test this page with Watir.'
 
-describe "jenkins-testlink-rspec-watir-example-web-page" do
-	it "should not show 404 text (TC0001)" do
-		expect(@browser.text).not_to include('404')
-	end
-
-	it "should show a text (TC0002)" do
-		expect(@browser.text).to include('Jenkins-testlink-rspec-watir-example')
-	end
+describe "jenkins-testlink-rspec-watir-example" do
+  describe "mipmip-0001" do
+    
+      context "The website should load without problems | req-0001" do
+        
+        it "should not show 404 text | tc-0001-01" do
+			expect(@browser.text).not_to include('404')
+        end
+        
+        it "should show a text | tc-0001-02" do
+			p $baseurl
+			expect(@browser.text).to include('Jenkins-testlink-rspec-watir-example')
+        end
+      end
+    
+      context "The title should be displayed somewhere in the text | req-0002" do
+        
+        it "should show a text | tc-0002-01" do
+			expect(@browser.text).to include('Jenkins-testlink-rspec-watir-example')
+		end
+        
+      end
+    
+  end
 end

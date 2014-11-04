@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcases>
+  <testcase name="should not show 404 text">
+    <summary>./spec/jenkins-testlink-rspec-watir-examplemipmip-0001_spec.rb:70</summary>
+    <status>1</status>
+    <execution_type>2</execution_type>
+    <requirements>
+      <requirement>
+        <doc_id>req-0001</doc_id>
+      </requirement>
+    </requirements>
+    <custom_fields>
+      <custom_field>
+        <name>RSPEC CASE ID</name>
+        <value>tc-0001-01</value>
+      </custom_field>
+    </custom_fields>
+  </testcase>
+  <testcase name="should show a text">
+    <summary>./spec/jenkins-testlink-rspec-watir-examplemipmip-0001_spec.rb:74</summary>
+    <status>1</status>
+    <execution_type>2</execution_type>
+    <requirements>
+      <requirement>
+        <doc_id>req-0001</doc_id>
+      </requirement>
+    </requirements>
+    <custom_fields>
+      <custom_field>
+        <name>RSPEC CASE ID</name>
+        <value>tc-0001-02</value>
+      </custom_field>
+    </custom_fields>
+  </testcase>
+  <testcase name="should show a text">
+    <summary>./spec/jenkins-testlink-rspec-watir-examplemipmip-0001_spec.rb:82</summary>
+    <status>1</status>
+    <execution_type>2</execution_type>
+    <requirements>
+      <requirement>
+        <doc_id>req-0002</doc_id>
+      </requirement>
+    </requirements>
+    <custom_fields>
+      <custom_field>
+        <name>RSPEC CASE ID</name>
+        <value>tc-0002-01</value>
+      </custom_field>
+    </custom_fields>
+  </testcase>
+</testcases>
