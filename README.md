@@ -152,7 +152,7 @@ The last step in this tutorial is to see if the everything is glewed correctly.
 	[32mYour bundle is complete! It was installed into ./vendor/bundle[0m
 	+ rm -f final_reports/SPEC-jenkins-testlink-rspec-watir-example-web-page.xml
 	Preparing TestLink client API.
-	Using TestLink URL: http://linge-1090-testlink.dev.lingewoud.net/lib/api/xmlrpc/v1/xmlrpc.php
+	Using TestLink URL: http://xxxxxxx.dev.yyyyyyyyyyyyy.net/lib/api/xmlrpc/v1/xmlrpc.php
 
 	Found 2 automated test cases in TestLink.
 
