@@ -23,16 +23,6 @@ require 'yaml'
 
 if browsertype = ENV["browser"]
 	case browsertype
-	when /ie/
-		$browser = Watir::Browser.new
-	when /safari/
-		require "watir-webdriver"  # For web automation.
-		$browser = Watir::Browser.new
-	when /firefox/
-
-		require "watir-webdriver"  # For web automation.
-		$browser = Watir::Browser.new
-
 	when /chrome/
 		require "watir-webdriver"  # For web automation.
 		$browser = Watir::Browser.new :chrome
