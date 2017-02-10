@@ -49,7 +49,7 @@ RSpec.configure do |config|
 	}
 end
 
-$baseurl = 'http://mipmip.github.io/jenkins-testlink-rspec-watir-example'
+$baseurl = 'https://github.com/nitheesbalaji/jenkins-testlink-rspec-watir-example'
 $waitfortext = 'We will automatically test this page with Watir.'
 
 describe "jenkins-testlink-rspec-watir-example" do
