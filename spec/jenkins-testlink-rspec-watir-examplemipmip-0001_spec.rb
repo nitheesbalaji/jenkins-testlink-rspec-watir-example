@@ -25,7 +25,7 @@ if browsertype = ENV["browser"]
 		raise Error::WebDriverError, "unknown browser: #{browsertype.inspect}"
 	end
 else
-	$browser = Watir::Browser.new
+	$browser = Watir::Browser.new :chrome
 end
 
 
